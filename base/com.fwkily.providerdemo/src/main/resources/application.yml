@@ -1,0 +1,23 @@
+server:
+  port: 7900
+
+
+spring:
+  application:
+    name: provider-demo
+  cloud:
+    loadbalancer:
+      ribbon:
+        enable: false
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

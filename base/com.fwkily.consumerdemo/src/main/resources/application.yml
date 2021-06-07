@@ -1,0 +1,27 @@
+
+server:
+  port: 7910
+
+
+spring:
+  application:
+    name: consumer-demo
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+
+provider-demo:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+

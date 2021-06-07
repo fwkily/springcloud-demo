@@ -1,0 +1,20 @@
+server:
+  port: 7901
+
+
+spring:
+  application:
+    name: provider-demo2
+
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

@@ -1,0 +1,31 @@
+
+server:
+  port: 9100
+
+spring:
+  application:
+    name: zuul
+
+#ribbon配置需要在eureka之前
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ #当前zuul网关想要注册到哪个注册中心这里注册到之前搭的8761上。
+
+#路由规则定义。这里定义两种路由规则route1和route2
+#，代表访问网关/test01/**或/test02/**时。
+#路由到服务名为 eurekaservice1或 eureka
+#service2中的服务集群去。
+zuul:
+  routes:
+    route1:
+      path: /test01/**
+      serviceId: provider-demo2
+    route2:
+      path: /test02/**
+      serviceId: consumer-demo,consumer-demo2
